@@ -1,5 +1,10 @@
 object Main extends App{
 
+
+  private def onlyLetters(line : String)={
+  line.replaceAll("//d","")
+  }
+
   def isPalindrome(str: String) = {
     val s = str.replaceAll(" ", "").toLowerCase
     val len = s.length
