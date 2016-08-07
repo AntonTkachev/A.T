@@ -1,26 +1,26 @@
-object Main extends App{
+object Main extends App {
 
 
-  private def onlyLetters(line : String)={
-  line.replaceAll("//d","")
+  private def removeSymbols(line: String) = {
+    line.replaceAll("[^A-Za-zА-Яа-я0-9]", "").toLowerCase()
   }
 
   def isPalindrome(str: String) = {
-    val s = str.replaceAll(" ", "").toLowerCase
-    val len = s.length
-    if (len % 2 == 0) {
-      val halhLen = len / 2
-      val twoHalves = s.splitAt(halhLen)
+    val myString = removeSymbols(str)
+    val lengthMyString = myString.length
+    if (lengthMyString % 2 == 0) {
+      val halfLen = lengthMyString / 2
+      val twoHalves = myString.splitAt(halfLen)
 
       if (twoHalves._1 equals twoHalves._2.reverse) {
-        println("Это полиндров")
+        true
       }
       else {
-        println("ХЗ че эт")
+        false
       }
     }
     else {
-      println("Нечетное")
+      false
     }
   }
 
