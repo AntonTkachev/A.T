@@ -9,7 +9,7 @@
     <content url="jar://$USER_HOME$/Downloads/scalatest-app_2.11-3.0.0 (1).jar!/" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="scala-sdk-2.11.81" level="application" />
+    <orderEntry type="library" name="scala-sdk-2.11.8" level="application" />
     <orderEntry type="library" name="jdk1.8" level="application" />
     <orderEntry type="library" name="scalatest-app_2.11-3.0.0" level="project" />
   </component>
