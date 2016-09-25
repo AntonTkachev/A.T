@@ -52,14 +52,14 @@ class Application extends JFrame("My First Window") {
 
   fullList.get(10).addActionListener(new ActionListener {
     def actionPerformed(e: ActionEvent): Unit = {
-      var temp: String = display.getText()
+      val temp = display.getText()
       display.setText(temp.substring(0,temp.length()-1))
     }
   })
 
   fullList.get(11).addActionListener(new ActionListener {
     def actionPerformed(e: ActionEvent): Unit = {
-      var firstValue = Integer.valueOf(display.getText())
+      firstValue = Integer.valueOf(display.getText())
       display.setText("")
       operation = "+"
     }
@@ -67,7 +67,7 @@ class Application extends JFrame("My First Window") {
 
   fullList.get(12).addActionListener(new ActionListener {
     def actionPerformed(e: ActionEvent): Unit = {
-      var firstValue = Integer.valueOf(display.getText())
+      firstValue = Integer.valueOf(display.getText())
       display.setText("")
       operation = "*"
     }
@@ -75,7 +75,7 @@ class Application extends JFrame("My First Window") {
 
   fullList.get(13).addActionListener(new ActionListener {
     def actionPerformed(e: ActionEvent): Unit = {
-      val firstValue = Integer.valueOf(display.getText())
+      firstValue = Integer.valueOf(display.getText())
       display.setText("")
       operation = "/"
     }
@@ -83,9 +83,9 @@ class Application extends JFrame("My First Window") {
 
   fullList.get(14).addActionListener(new ActionListener {
     def actionPerformed(e: ActionEvent): Unit = {
-      var firstValue = Integer.valueOf(display.getText())
+      firstValue = Integer.valueOf(display.getText())
       display.setText("")
-      var operation = "-"
+      operation = "-"
     }
   })
 
