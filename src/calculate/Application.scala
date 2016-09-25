@@ -18,24 +18,9 @@ class Application extends JFrame("My First Window") {
 
   val display = new JTextArea()
   val buttonPanel = new JPanel(new GridLayout(3, 5))
-  val button0 = new JButton("0")
-  val button1 = new JButton("1")
-  val button2 = new JButton("2")
-  val button3 = new JButton("3")
-  val button4 = new JButton("4")
-  val button5 = new JButton("5")
-  val button6 = new JButton("6")
-  val button7 = new JButton("7")
-  val button8 = new JButton("8")
-  val button9 = new JButton("9")
-  val buttonSum = new JButton("+")
-  val buttonBack = new JButton("C")
-  val buttonDivide = new JButton("/")
-  val buttonSub = new JButton("-")
-  val buttonMul = new JButton("*")
   val buttonStart = new JButton("=")
 
-  val valueForButton = List[String]("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "C", "+", "*","/", "-")
+  val valueForButton = List[String]("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "C", "+", "*", "/", "-")
   var fullList: util.ArrayList[JButton] = new java.util.ArrayList[JButton]()
   for (i <- valueForButton) {
     fullList.add(new JButton(i))
@@ -43,17 +28,20 @@ class Application extends JFrame("My First Window") {
   var firstValue = 0
   var operation = ""
 
-  for (x <- 0 to 9){
+  for (x <- 0 to 9) {
     fullList.get(x).addActionListener(new ActionListener() {
       def actionPerformed(e: ActionEvent) {
         display.setText(display.getText + valueForButton(x))
       }
-    })}
+    })
+  }
 
   fullList.get(10).addActionListener(new ActionListener {
     def actionPerformed(e: ActionEvent): Unit = {
       val temp = display.getText()
-      display.setText(temp.substring(0,temp.length()-1))
+      if (temp.nonEmpty) {
+        display.setText(temp.substring(0, temp.length() - 1))
+      }
     }
   })
 
@@ -90,19 +78,19 @@ class Application extends JFrame("My First Window") {
   })
 
   buttonStart.addActionListener(new ActionListener() {
-    def actionPerformed(e : ActionEvent) {
+    def actionPerformed(e: ActionEvent) {
       val secondValue = Integer.valueOf(display.getText())
-      if("+".equals(operation)){
-        display.setText((firstValue+secondValue)+"")
+      if ("+".equals(operation)) {
+        display.setText((firstValue + secondValue) + "")
       }
-      if("-".equals(operation)){
-        display.setText((firstValue-secondValue)+"")
+      if ("-".equals(operation)) {
+        display.setText((firstValue - secondValue) + "")
       }
-      if("*".equals(operation)){
-        display.setText((firstValue*secondValue)+"")
+      if ("*".equals(operation)) {
+        display.setText((firstValue * secondValue) + "")
       }
-      if("/".equals(operation)){
-        display.setText((firstValue/secondValue)+"")
+      if ("/".equals(operation)) {
+        display.setText((firstValue / secondValue) + "")
       }
       firstValue = 0
       operation = "+"
@@ -112,8 +100,8 @@ class Application extends JFrame("My First Window") {
   setLayout(new BorderLayout())
   add(display, BorderLayout.NORTH)
   add(buttonPanel, BorderLayout.CENTER)
-  add(buttonStart,BorderLayout.SOUTH)
-  for(i <- valueForButton.indices){
+  add(buttonStart, BorderLayout.SOUTH)
+  for (i <- valueForButton.indices) {
     buttonPanel.add(fullList.get(i))
   }
   setVisible(true)
