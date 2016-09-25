@@ -40,42 +40,22 @@ class Application extends JFrame("My First Window") {
     def actionPerformed(e: ActionEvent): Unit = {
       val temp = display.getText()
       if (temp.nonEmpty) {
-        display.setText(temp.substring(0, temp.length() - 1))
+        display.setText(temp.dropRight(1))
       }
     }
   })
 
-  fullList.get(11).addActionListener(new ActionListener {
-    def actionPerformed(e: ActionEvent): Unit = {
-      firstValue = Integer.valueOf(display.getText())
-      display.setText("")
-      operation = "+"
-    }
-  })
-
-  fullList.get(12).addActionListener(new ActionListener {
-    def actionPerformed(e: ActionEvent): Unit = {
-      firstValue = Integer.valueOf(display.getText())
-      display.setText("")
-      operation = "*"
-    }
-  })
-
-  fullList.get(13).addActionListener(new ActionListener {
-    def actionPerformed(e: ActionEvent): Unit = {
-      firstValue = Integer.valueOf(display.getText())
-      display.setText("")
-      operation = "/"
-    }
-  })
-
-  fullList.get(14).addActionListener(new ActionListener {
-    def actionPerformed(e: ActionEvent): Unit = {
-      firstValue = Integer.valueOf(display.getText())
-      display.setText("")
-      operation = "-"
-    }
-  })
+  for (z <- 11 to 14) {
+    fullList.get(z).addActionListener(new ActionListener {
+      def actionPerformed(e: ActionEvent): Unit = {
+        firstValue = Integer.valueOf(display.getText())
+        if (firstValue.toString.nonEmpty) {
+          display.setText("")
+          operation = valueForButton(z)
+        }
+      }
+    })
+  }
 
   buttonStart.addActionListener(new ActionListener() {
     def actionPerformed(e: ActionEvent) {
